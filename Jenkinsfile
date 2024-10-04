@@ -10,17 +10,16 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git ''
+                git 'https://github.com/SplinteeX/Week7-Lecture.git'
             }
         }
         stage('Run Tests') {
             steps {
-                sh 'mvn clean test' // Uncomment if on a Linux agent
+                sh 'mvn clean test'
             }
         }
         stage('Code Coverage') {
             steps {
-                // Generate Jacoco report after the tests have run
                 sh 'mvn jacoco:report'
             }
         }
